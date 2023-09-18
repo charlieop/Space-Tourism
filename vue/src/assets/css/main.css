@@ -24,7 +24,7 @@ html {
   color: var(--clr-primary);
   background-color: var(--clr-nav);
   min-height: 100svh;
-  padding-inline: 11.46vw;
+  /* padding-inline: 11.46vw; */
 }
 
 h1,
