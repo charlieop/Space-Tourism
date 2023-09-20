@@ -3,24 +3,24 @@
     <img src="../../assets/imgs/icons/logo.svg" alt="contain" />
     <div class="content-line"></div>
     <div class="content-nav">
-      <div class="content-nav-words">
-        <div :class="'content-nav-words-item ' + active[0]" @click="change(0)">
-          <div class="content-nav-words-item-number">00</div>
-          <div class="content-nav-words-item-word">home</div>
-        </div>
-        <div :class="'content-nav-words-item ' + active[1]" @click="change(1)">
-          <div class="content-nav-words-item-number">01</div>
-          <div class="content-nav-words-item-word">destination</div>
-        </div>
-        <div :class="'content-nav-words-item ' + active[2]" @click="change(2)">
-          <div class="content-nav-words-item-number">02</div>
-          <div class="content-nav-words-item-word">crew</div>
-        </div>
-        <div :class="'content-nav-words-item ' + active[3]" @click="change(3)">
-          <div class="content-nav-words-item-number">03</div>
-          <div class="content-nav-words-item-word">technology</div>
-        </div>
-      </div>
+      <ul class="content-nav-words">
+        <li :class="'content-nav-words-item ' + active[0]" @click="change(0)">
+          <a class="content-nav-words-item-number">00</a>
+          <a class="content-nav-words-item-word text--nav">home</a>
+        </li>
+        <li :class="'content-nav-words-item ' + active[1]" @click="change(1)">
+          <a class="content-nav-words-item-number">01</a>
+          <a class="content-nav-words-item-word text--nav">destination</a>
+        </li>
+        <li :class="'content-nav-words-item ' + active[2]" @click="change(2)">
+          <a class="content-nav-words-item-number">02</a>
+          <a class="content-nav-words-item-word text--nav">crew</a>
+        </li>
+        <li :class="'content-nav-words-item ' + active[3]" @click="change(3)">
+          <a class="content-nav-words-item-number">03</a>
+          <a class="content-nav-words-item-word text--nav">technology</a>
+        </li>
+      </ul>
     </div>
   </div>
 </template>
@@ -40,12 +40,14 @@ function change(index) {
 <style scoped>
 .content {
   margin-top: 40px;
-  position: relative;
+  position: fixed;
+  margin-left: 0px;
   padding-left: 55px;
   display: flex;
   align-items: center;
   height: 96px;
   width: 100%;
+  left: 0px;
 }
 .content-line {
   width: 60px;
@@ -105,5 +107,38 @@ function change(index) {
 .active {
   border-bottom: 3px #ffffff solid;
   pointer-events: none;
+}
+@media (max-width: 768px) {
+  .content-nav-words-item-number {
+    display: none;
+  }
+  .content {
+    left: 0px;
+    margin-top: 0px;
+    padding-left: 39px;
+  }
+  .content-line {
+    display: none;
+  }
+  .content-nav {
+    width: 450px;
+  }
+  .content-nav-words {
+    right: 0px;
+    font-size: 14px;
+    width: 450px;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 2.362px;
+  }
+  .content-nav-words-item {
+    margin-left:37px ;
+    margin-right:0px ;
+  }
+  .content-nav-words-item:hover {
+    border-bottom: 3px #ffffff solid;
+}
 }
 </style>
