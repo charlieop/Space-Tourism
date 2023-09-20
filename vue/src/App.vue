@@ -1,30 +1,65 @@
 <template>
-  <h1>h1 - {{ welcomeText }}</h1>
-  <h2>h2 - {{ welcomeText }}</h2>
-  <h3>h3 - {{ welcomeText }}</h3>
-  <h4>h4 - {{ welcomeText }}</h4>
-  <h5>h5 - {{ welcomeText }}</h5>
-  <p class="sub-h-1">.sub-h-1 -{{ welcomeText }}</p>
-  <p class="sub-h-2">.sub-h-2 -{{ welcomeText }}</p>
-  <p class="text">.text - {{ welcomeText }}</p>
-  <p class="text--nav">.text--nav - {{ welcomeText }}</p>
+  <container>
+    <header>
+      <HeaderBar />
+    </header>
+    <RouterView />
+  </container>
 </template>
-
 <script setup>
-import { ref, onMounted } from "vue";
-
-// reactive variables
-const welcomeText = ref("You have sucessfully started this Vue project!");
-
-// lifecycle hooks
-onMounted(() => {
-  console.log("Vue mounted!");
-});
+import HeaderBar from './components/HeaderBar.vue'
 </script>
 
 <style>
-/* style test only, delete when start */
-* {
-  margin-block-end: 5rem;
+
+html,body{
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+#app{
+  height: 100vh;
+  width: 100%;
+}
+.el-header {
+  background-color: #1961B1;
+  color: #fff;
+  line-height: 60px;
+  --el-header-padding: 0 10px;
+  width: 100%;
+}
+
+.el-main {
+  --el-main-padding: 0;
+}
+
+.logo {
+  display: block;
+  margin: 0 auto 2rem;
+}
+
+nav {
+  width: 100%;
+  font-size: 12px;
+  text-align: center;
+  margin-top: 2rem;
+}
+
+nav a.router-link-exact-active {
+  color: var(--color-text);
+}
+
+nav a.router-link-exact-active:hover {
+  background-color: transparent;
+}
+
+nav a {
+  display: inline-block;
+  padding: 0 1rem;
+  border-left: 1px solid var(--color-border);
+}
+
+nav a:first-of-type {
+  border: 0;
 }
 </style>
