@@ -1,13 +1,14 @@
 /* Global Styles
 
 /* Fonts */
-@import url("https://fonts.googleapis.com/css2?family=Barlow+Condensed&family=Bellefair&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Barlow+Condensed&family=Barlow&family=Bellefair&display=swap");
 
 /* Global Variables*/
 :root {
   /* font family */
   --ff-primary: "Barlow Condensed", sans-serif;
   --ff-accent: "Bellefair", serif;
+  --ff-text: "Barlow", sans-serif;
 
   /* font size */
   --fs-base: 16px;
@@ -82,9 +83,11 @@ h5 {
   font-size: 0.875rem;
   letter-spacing: 0.1475rem;
   color: var(--clr-accent);
+  text-transform: uppercase;
 }
 
 .text {
+  font-family: var(--ff-text);
   font-size: 1.125rem;
   line-height: 1.77777778;
   color: var(--clr-accent);
@@ -93,6 +96,7 @@ h5 {
 .text--nav {
   font-size: 1rem;
   letter-spacing: 0.16875rem;
+  text-transform: uppercase;
 }
 
 /* styles for tablet */
