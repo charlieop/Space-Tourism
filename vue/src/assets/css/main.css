@@ -27,6 +27,7 @@ html {
   color: var(--clr-primary);
   background-color: var(--clr-nav);
   min-height: 100svh;
+
   /* padding-inline: 11.46vw; */
 }
 
@@ -102,9 +103,11 @@ h5 {
   font-size: 0.875rem;
   letter-spacing: 0.1475rem;
   color: var(--clr-accent);
+  text-transform: uppercase;
 }
 
 .text {
+  font-family: var(--ff-text);
   font-size: 1.125rem;
   line-height: 1.77777778;
   color: var(--clr-accent);
@@ -113,12 +116,13 @@ h5 {
 .text--nav {
   font-size: 1rem;
   letter-spacing: 0.16875rem;
+  text-transform: uppercase;
 }
 
 /* styles for tablet */
 @media screen and (max-width: 960px) {
   html {
-    padding-inline: 10vw;
+    /* padding-inline: 10vw; */
   }
 
   h1 {
@@ -165,7 +169,7 @@ h5 {
 /* styles for phone */
 @media screen and (max-width: 480px) {
   html {
-    padding-inline: 0;
+    /* padding-inline: 0; */
   }
 
   h1 {
