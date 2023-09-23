@@ -1,6 +1,7 @@
 <script setup>
 import { RouterLink, RouterView } from "vue-router";
 import HeaderBar from "./components/general/NavBar.vue";
+// import Dest__Main from "./components/dest/Dest__Main.vue";
 </script>
 <template>
   <container>
@@ -12,4 +13,5 @@ import HeaderBar from "./components/general/NavBar.vue";
 </template>
 
 
-<style></style>
+<style>
+</style>
