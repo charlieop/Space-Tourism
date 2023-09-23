@@ -1,3 +1,7 @@
+<script setup>
+import { RouterLink, RouterView } from "vue-router";
+import HeaderBar from "./components/general/NavBar.vue";
+</script>
 <template>
   <container>
     <header>
@@ -6,8 +10,6 @@
     <RouterView />
   </container>
 </template>
-<script setup>
-import HeaderBar from "./components/general/NavBar.vue";
-</script>
+
 
 <style></style>
