@@ -66,28 +66,10 @@ const curTravelTime = computed(() => curJSON.value.travel);
 </script>
 
 <style scoped>
-.info__container {
-  display: flex;
-  flex-direction: column;
-  gap: 3rem;
-  max-width: 27.8125rem;
-}
-
+/* General Design */
 li {
   cursor: pointer;
 }
-
-nav ul {
-  display: flex;
-  flex-direction: row;
-  gap: 2.19rem;
-}
-
-h2 {
-  text-align: left;
-  margin-bottom: 0.87rem;
-}
-
 .text--nav {
   color: var(--clr-accent);
   position: relative;
@@ -117,10 +99,6 @@ li:hover .text--nav::after {
   opacity: 1 !important;
 }
 
-.text {
-  text-align: left;
-}
-
 .decoration-line {
   width: 100%;
   height: 0.0625rem;
@@ -130,17 +108,76 @@ li:hover .text--nav::after {
   margin-bottom: -1.25rem;
 }
 
-.info__figures {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+/* Mobile Design */
+.info__container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  max-width: calc(19.328125rem + 5vw);
 }
 
-.sub-h-1,
-.sub-h-2 {
-  text-align: left;
+nav ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 1.625rem;
+}
+
+.info__figures {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
 }
 
 .sub-h-1 {
   padding-top: 0.75rem;
+}
+
+/* Tablet Design */
+@media screen and (min-width: 480px) {
+  nav ul {
+    gap: 2.15rem;
+  }
+  .info__container {
+    max-width: calc(33.4125rem + 5vw);
+    gap: 2.5rem;
+  }
+  .info__figures {
+    flex-direction: row;
+    justify-content: center;
+    gap: 5rem;
+  }
+}
+
+/* Desktop Design */
+@media screen and (min-width: 960px) {
+  .info__container {
+    max-width: 27.8125rem;
+    gap: 3rem;
+  }
+
+  nav ul {
+    justify-content: flex-start;
+    gap: 2.19rem;
+  }
+
+  h2 {
+    text-align: left;
+    margin-bottom: 0.87rem;
+  }
+
+  .text {
+    text-align: left;
+  }
+
+  .info__figures {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .sub-h-1,
+  .sub-h-2 {
+    text-align: left;
+  }
 }
 </style>

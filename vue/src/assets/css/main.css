@@ -102,7 +102,7 @@ h5 {
 /* styles for tablet */
 @media screen and (max-width: 960px) {
   html {
-    padding-inline: 10vw;
+    /* padding-inline: 10vw; */
   }
 
   h1 {
@@ -149,7 +149,7 @@ h5 {
 /* styles for phone */
 @media screen and (max-width: 480px) {
   html {
-    padding-inline: 0;
+    /* padding-inline: 0; */
   }
 
   h1 {
