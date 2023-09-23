@@ -80,6 +80,7 @@ function navout() {
   height: 96px;
   width: 100%;
   left: 0px;
+  z-index: 5;
 }
 .content-line {
   width: 60px;
