@@ -53,19 +53,6 @@ h5,
   text-align: center;
 }
 
-.text {
-  font-family: var(--ff-text);
-  line-height: 1.2;
-  text-align: left;
-}
-
-h3,
-h4,
-h5,
-.text {
-  text-align: left;
-}
-
 /* styles for desktop */
 h1 {
   font-size: 9.375rem;
