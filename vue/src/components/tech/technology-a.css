@@ -118,7 +118,7 @@ h5 {
   z-index: -1;
 }
 
-.header {
+nav {
   height: 9%;
   display: flex;
   top: 40px;
@@ -189,7 +189,7 @@ h5 {
   position: absolute;
 }
 
-.slogan .serial__101 {
+.slogan .h5--number {
   padding: 0 1rem 0 0;
   opacity: 0.5;
 }
