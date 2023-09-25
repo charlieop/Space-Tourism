@@ -9,7 +9,7 @@
 <script>
 export default {
     props: {
-        imageUrl: {
+        imgUrl: {
             type: String,
             default: ""
         },
