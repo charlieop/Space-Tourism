@@ -1,4 +1,4 @@
-<template>
+               <template>
   <div class="info__container">
     <nav>
       <ul>
