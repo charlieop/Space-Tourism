@@ -1,10 +1,7 @@
 <template>
   <div class="bitmap-outer">
-    <img
-      class="bitmap-inner"
-      :src="isDesktop ? portraitImageUrl : landscapeImageUrl"
-      alt="altText"
-    />
+    <img class="bitmap-desktop" :src="portraitImageUrl" alt="altText" />
+    <img class="bitmap-inner" :src="landscapeImageUrl" alt="altText" />
   </div>
 </template>
 
@@ -24,25 +21,6 @@ export default {
       default: "Technology image",
     },
   },
-  computed: {
-    isDesktop() {
-      return window.innerWidth >= 960;
-    },
-  },
-  mounted() {
-    // 监听窗口大小变化，更新 computed 属性
-    window.addEventListener("resize", this.handleResize);
-  },
-  beforeUnmount() {
-    // 在组件销毁前移除窗口大小变化的监听器
-    window.removeEventListener("resize", this.handleResize);
-  },
-  methods: {
-    handleResize() {
-      // 窗口大小变化时，computed 属性会自动更新
-      this.isDesktop = window.innerWidth >= 960;
-    },
-  },
 };
 </script>
 
@@ -52,7 +30,7 @@ export default {
   min-height: 400px;
   width: fit-content;
 }
-.bitmap-inner {
+.bitmap-desktop {
   height: 50vh;
   min-height: 400px;
   position: absolute;
@@ -61,30 +39,45 @@ export default {
   transform: translateX(50%);
   z-index: -10;
 }
+.bitmap-inner {
+  width: 100%;
+  display: none;
+}
 
 /* TABLET */
 @media screen and (max-width: 960px) {
   .bitmap-outer {
-    height: 35vh;
-    min-height: 400px;
-    width: fit-content;
+    width: 100%;
+    min-height: 200px;
+    height: fit-content;
+  }
+  .bitmap-desktop {
+    display: none;
   }
   .bitmap-inner {
-    height: 15vh;
+    width: 100%;
+    min-height: 100px;
+    display: flex;
     position: static;
-    transform: none;
+    object-fit: cover;
+    object-position: center;
   }
 }
 
 /* MOBILE */
 @media screen and (max-width: 480px) {
   .bitmap-outer {
-    height: 30vh;
-    min-height: 400px;
-    width: fit-content;
+    height: 20vh;
+    min-height: 100px;
+    height: fit-content;
+  }
+  .bitmap-desktop {
+    display: none;
   }
   .bitmap-inner {
-    height: 30vh;
+    width: 100%;
+    min-height: 100px;
+    display: flex;
     position: static;
     transform: none;
   }
