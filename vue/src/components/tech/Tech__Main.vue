@@ -1,71 +1,79 @@
 <template>
   <div class="tech">
-    <div class="tech-subtitle">
-      <span class="h5--number">03</span>
-      space launch 101
-    </div>
+    <h4 class="tech-subtitle">
+      <span class="h5--number">03</span> SPACE LAUNCH 101
+    </h4>
+
     <div class="slide">
-      <!-- render slide transitions -->
       <transition name="fade" mode="out-in">
         <Tech__Info
           :key="currentSlide"
-          :role="slides[currentSlide].role"
+          :description="slides[currentSlide].description"
           :name="slides[currentSlide].name"
-          :bio="slides[currentSlide].bio"
         />
       </transition>
-      <!-- bitmap indicator -->
-      <div class="shift">
+      <div class="indicator-dots">
         <span
-          class="shift-dot"
+          class="indicator-dot"
           v-for="(slide, index) in slides"
           :key="index"
           v-on:click="setSlide(index)"
-          :class="{ 'shift-dot--active': currentSlide == index }"
-        ></span>
+          :class="{ 'indicator-dot--active': currentSlide === index }"
+        >
+          <h5>{{ index + 1 }}</h5>
+        </span>
       </div>
-      <!-- transition animation -->
       <transition name="fade" mode="out-in">
         <Tech__Img
           :key="currentSlide"
-          :imgUrl="require(`@/assets/${slides[currentSlide].images.webp}`)"
+          :portraitImageUrl="
+            require(`@/assets/${slides[currentSlide].images.portrait}`)
+          "
+          :landscapeImageUrl="
+            require(`@/assets/${slides[currentSlide].images.landscape}`)
+          "
         />
       </transition>
     </div>
   </div>
 </template>
 
-<script setup>
-// setup: syntax sugar
-import { ref, onMounted, onBeforeUnmount } from "vue";
+<script>
 import Tech__Img from "./Tech__Img.vue";
 import Tech__Info from "./Tech__Info.vue";
+
 import data from "@/assets/data/data.json";
 
-const currentSlide = ref(0);
-const slides = data.tech;
-const windowWidth = window.innerWidth;
-let interval;
+export default {
+  data() {
+    return {
+      currentSlide: 0,
+      slides: data.technology,
+      windowWidth: window.innerWidth,
+    };
+  },
+  methods: {
+    setSlide(index) {
+      this.currentSlide = index;
+    },
+  },
+  components: { Tech__Img, Tech__Info },
+  mounted() {
+    this.interval = setInterval(() => {
+      this.currentSlide = (this.currentSlide + 1) % this.slides.length;
+    }, 80000);
+  },
 
-const setSlide = (index) => {
-  currentSlide.value = index;
+  beforeUnmount() {
+    clearInterval(this.interval);
+  },
 };
-
-onMounted(() => {
-  interval = setInterval(() => {
-    currentSlide.value = (currentSlide.value + 1) % slides.length;
-  }, 7000);
-});
-
-onBeforeUnmount(() => {
-  clearInterval(interval);
-});
 </script>
 
 <style scoped>
 .tech {
   width: 100%;
-  height: 80vh; /* 100vh - navBar height */
+  height: 80vh;
   min-height: 400px;
   position: relative;
 }
@@ -81,27 +89,36 @@ onBeforeUnmount(() => {
 }
 
 /* indicator dots*/
-.shift {
-  position: absolute;
-  bottom: 94px;
+.indicator-dots {
   display: flex;
-  gap: 5px;
+  flex-direction: column;
+  position: absolute;
+  bottom: 25vh;
+  gap: 5vh;
+  justify-content: center;
+  align-items: center;
 }
 
-.shift-dot {
-  width: 15px;
-  height: 15px;
-  background-color: hsl(0, 0%, 25%);
+.indicator-dot {
+  width: 5vw;
+  height: 5vw;
   border-radius: 50%;
+  border: 5px solid hsl(0, 0, 100);
   cursor: pointer;
   transition: background-color 0.2s;
-}
-.shift-dot:hover {
-  background-color: hsl(0, 0%, 50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.shift-dot--active {
+.indicator-dot:hover {
+  background-color: hsl(0, 0%, 50%);
+  color: hsl(0, 0, 0);
+}
+
+.indicator-dot--active {
   background-color: hsl(0, 0%, 100%);
+  color: hsl(0, 0, 0);
 }
 
 /* transition */
@@ -122,12 +139,15 @@ onBeforeUnmount(() => {
   }
   .slide {
     height: 90vh;
-    flex-direction: column;
+    flex-direction: column-reverse;
     justify-content: end;
     align-items: center;
     gap: 5vh;
   }
-  .shift {
+  .indicator-dots {
+    flex-direction: row;
+  }
+  .indicator-dots {
     position: static;
   }
 }
@@ -140,6 +160,11 @@ onBeforeUnmount(() => {
     align-items: center;
     gap: 3vh;
   }
+
+  .indicator-dots {
+    flex-direction: row;
+  }
+
   .tech-subtitle {
     position: static;
   }

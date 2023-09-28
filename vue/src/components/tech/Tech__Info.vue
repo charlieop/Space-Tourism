@@ -1,23 +1,18 @@
 <template>
   <div class="text-container">
-    <h5 class="role-text">{{ role }}</h5>
     <h3>{{ name }}</h3>
-    <p class="text">{{ bio }}</p>
+    <p class="text">{{ description }}</p>
   </div>
 </template>
 
 <script>
 export default {
   props: {
-    role: {
-      type: String,
-      default: ""
-    },
     name: {
       type: String,
       default: ""
     },
-    bio: {
+    description: {
       type: String,
       default: ""
     }
@@ -25,15 +20,14 @@ export default {
 };
 </script>
 
-
 <style scoped>
-h3,
-h5 {
-  text-align: left;
+.text-container{
+  margin-left: 8vw;
 }
 
-.role-text {
-  opacity: 0.5;
+h3,
+h4 {
+  text-align: left;
 }
 
 .text {
@@ -51,6 +45,7 @@ h5 {
     width: 80vw;
     max-width: none;
     text-align: center;
+    margin-left: 0;
   }
 }
 
@@ -58,6 +53,7 @@ h5 {
 @media screen and (max-width: 480px) {
   .text {
     width: 90vw;
+    margin-left: 0;
   }
 }
 </style>
