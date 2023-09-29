@@ -30,6 +30,11 @@ h3,
 h4 {
   text-align: left;
 }
+h3 {
+  width: 120%;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+}
 
 .role-text {
   opacity: 0.5;
@@ -46,6 +51,11 @@ h4 {
   h4 {
     text-align: center;
   }
+  h3 {
+    width: 100%;
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
+  }
   .text {
     width: 80vw;
     max-width: none;
@@ -55,6 +65,10 @@ h4 {
 
 /* MOBILE */
 @media screen and (max-width: 480px) {
+  .h3 {
+    margin-top: 0.2rem;
+    margin-bottom: 1.8rem;
+  }
   .text {
     width: 90vw;
   }

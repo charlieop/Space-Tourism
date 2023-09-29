@@ -23,27 +23,25 @@ export default {
 .image-container {
   height: 80vh;
   min-height: 400px;
-  width: fit-content;
+  width: 100%;
+  z-index: -1;
+  display: flex;
+  justify-content: center;
+  align-items: end;
 }
 .crew-img {
-  height: 80vh;
-  min-height: 400px;
-  position: absolute;
-  bottom: 0;
-  right: 27vw;
-  transform: translateX(50%);
-  z-index: -10;
+  height: 90%;
 }
 
 /* TABLET */
 @media screen and (max-width: 960px) {
   .image-container {
-    height: 35vh;
-    min-height: 400px;
+    height: 55vh;
+    min-height: 200px;
     width: fit-content;
   }
   .crew-img {
-    height: 35vh;
+    height: 100%;
     position: static;
     transform: none;
   }
@@ -53,13 +51,12 @@ export default {
 @media screen and (max-width: 480px) {
   .image-container {
     height: 30vh;
-    min-height: 400px;
-    width: fit-content;
+    min-height: 100px;
+    width: 100%;
+    border-bottom: 1px solid #383B4B;
   }
   .crew-img {
-    height: 30vh;
-    position: static;
-    transform: none;
+    height: 100%;
   }
 }
 </style>

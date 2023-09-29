@@ -1,23 +1,21 @@
 <template>
   <div class="crew">
-    <h5 class="crew-subtitle"><span class="h5--number">02</span> Meet Your Crew</h5>
-    
-      <div class="slide">
-        <transition name="fade" mode="out-in">
-          <Crew__Info 
-            :key="currentSlide"
-            :role="slides[currentSlide].role" 
-            :name="slides[currentSlide].name" 
-            :bio="slides[currentSlide].bio" />
-        </transition>
-        <div class="indicator-dots">
-          <span class="indicator-dot" v-for="(slide, index) in slides" :key="index" v-on:click="setSlide(index)"
-                :class="{ 'indicator-dot--active': currentSlide === index }"></span>
-        </div>
-        <transition name="fade" mode="out-in">
-          <Crew__Img :key="currentSlide" :imageUrl="require(`@/assets/${slides[currentSlide].images.webp}`)" />
-        </transition>
+    <div class="slide">
+      <transition name="fade" mode="out-in">
+        <Crew__Info 
+          :key="currentSlide"
+          :role="slides[currentSlide].role" 
+          :name="slides[currentSlide].name" 
+          :bio="slides[currentSlide].bio" />
+      </transition>
+      <div class="indicator-dots">
+        <span class="indicator-dot" v-for="(slide, index) in slides" :key="index" v-on:click="setSlide(index)"
+              :class="{ 'indicator-dot--active': currentSlide === index }"></span>
       </div>
+      <transition name="fade" mode="out-in">
+        <Crew__Img :key="currentSlide" :imageUrl="require(`@/assets/${slides[currentSlide].images.webp}`)" />
+      </transition>
+    </div>
   </div>
 </template>
 
@@ -54,13 +52,13 @@ export default {
 </script>
 
 <style scoped>
-html {
-  background: cornsilk;
-}
 .crew {
-  width: 100%;
-  height: 80vh; /* 100vh - navBar height */
-  min-height: 400px;
+  padding-top: 160px;
+  margin-right: calc(55px);
+  margin-left: calc(70px + 7vw);
+  width: calc(100% - 55px - 70px - 7vw);
+  height: 100% ; /* calc(100vh - 100px) 100vh - header height*/
+  min-height: 700px;
   position: relative;
 }
 
@@ -69,6 +67,7 @@ html {
 }
 
 .slide {
+  width: 100%;
   display: flex;
   justify-content:left;
   align-items: center;
@@ -79,7 +78,7 @@ html {
   position: absolute;
   bottom: 94px;
   display: flex;
-  gap: 5px;
+  gap: 15px;
 }
 
 .indicator-dot {
@@ -112,23 +111,42 @@ html {
 /* TABLET */
 @media screen and (max-width: 960px) {
   .crew {
-    height: 90vh;
+    height: 100% - 100px;
+    width: 100%;
+    margin: 0;
+    padding-top: 100px;
+  }
+  .crew-subtitle {
+    margin-left: 40px;
   }
   .slide {
-    height: 90vh;
+    height: 100%;
     flex-direction: column;
-    justify-content:end;
+    margin-top: 2.2rem;
     align-items: center;
-    gap: 5vh;
+    gap: 3vh;
   }
   .indicator-dots {
     position: static;
+    gap: 12px;
+  }
+  .indicator-dot {
+    width: 10px;
+    height: 10px;
   }
 }
 
 /* MOBILE */
 @media screen and (max-width: 480px) {
+  .crew {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+  .crew-subtitle {
+    margin-left: 0;
+  }  
   .slide {
+    margin-top: 0;
     flex-direction: column-reverse;
     justify-content: center;
     align-items: center;
