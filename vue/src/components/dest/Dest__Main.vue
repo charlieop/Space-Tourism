@@ -44,6 +44,7 @@ function onUpdate(e) {
 <style scoped>
 /* Desktop Design */
 .container {
+  padding-top: 160px;
   display: flex;
   justify-content: center;
   align-items: center;
