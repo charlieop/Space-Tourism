@@ -39,8 +39,8 @@
 </template>
 
 <script>
-import Tech__Img from "./Tech__Img.vue";
-import Tech__Info from "./Tech__Info.vue";
+import Tech__Img from "../components/tech/Tech__Img.vue";
+import Tech__Info from "../components/tech/Tech__Info.vue";
 
 import data from "@/assets/data/data.json";
 

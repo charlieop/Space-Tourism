@@ -23,14 +23,17 @@
         />
       </label>
       <ul class="content-nav-words">
-        <li :class="'content-nav-words-item ' + active[0]" @click="change(0)">
-          <a class="content-nav-words-item-number">00</a>
-          <a class="content-nav-words-item-word text--nav">home</a>
-        </li>
-        <li :class="'content-nav-words-item ' + active[1]" @click="change(1)">
-          <a class="content-nav-words-item-number">01</a>
-          <a class="content-nav-words-item-word text--nav">destination</a>
-        </li>
+          <li :class="'content-nav-words-item ' + active[0]" @click="change(0)">
+            <a class="content-nav-words-item-number">00</a>
+            <a class="content-nav-words-item-word text--nav">home</a>
+          </li>
+      
+          <li :class="'content-nav-words-item ' + active[1]" @click="change(1)">
+            <a class="content-nav-words-item-number">01</a>
+            <a class="content-nav-words-item-word text--nav">destination</a>
+          </li>
+        
+
         <li :class="'content-nav-words-item ' + active[2]" @click="change(2)">
           <a class="content-nav-words-item-number">02</a>
           <a class="content-nav-words-item-word text--nav">crew</a>
@@ -44,15 +47,31 @@
   </div>
 </template>
 <script setup>
+import { useRouter } from "vue-router";
+const router = useRouter();
 import { ref } from "vue";
-var active = ref(["", "", "", "active"]);
+var active = ref(["active", "", "", ""]);
 var active2 = ref("");
+const menu = 
+  [{
+      link: '/'
+    },{
+      link: '/DestView'
+    },
+    {
+      link: '/CrewView'
+    },{
+      link: '/TechView'
+    }
+  ]
+
 function change(index) {
   for (var i = 0; i < active.value.length; i++) {
     if (i != index) {
       active.value[i] = "";
     }
   }
+  router.push(menu[index].link)
   active.value[index] = "active";
   console.log(active.value);
 }
@@ -200,7 +219,6 @@ function navout() {
     width: 24px;
   }
   .content-nav {
- 
     right: -450px;
     top: 0px;
     width: 254px;
@@ -210,7 +228,7 @@ function navout() {
 
     backdrop-filter: blur(40.774227142333984px);
   }
-  .content-nav-words{
+  .content-nav-words {
     padding-left: 32px;
   }
   img {
@@ -239,7 +257,7 @@ function navout() {
     height: auto;
     margin-top: 32px;
     align-items: baseline;
-    justify-content:left;
+    justify-content: left;
   }
   .content-nav-words {
     height: 100%;
